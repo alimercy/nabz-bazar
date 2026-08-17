@@ -1,0 +1,14 @@
+{
+  "name": "nabz-bazaar",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "RTL Persian financial market dashboard with a zero-dependency API proxy",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

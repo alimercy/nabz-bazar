@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: nabz-bazaar
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CACHE_SECONDS
+        value: "60"
+      - key: NAVASAN_CACHE_SECONDS
+        value: "21600"
+      - key: NAVASAN_API_KEY
+        sync: false
+      - key: NAVASAN_VALUE_DIVISOR
+        value: "1"
+      - key: NAVASAN_COIN_MULTIPLIER
+        value: "1000"
+      - key: USD_TOMAN
+        sync: false
+      - key: COIN_IMAMI_TOMAN
+        sync: false
+      - key: COINGECKO_API_KEY
+        sync: false

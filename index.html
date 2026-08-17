@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071d18">
+  <title>نبض بازار | قیمت لحظه‌ای طلا، ارز و رمزارز</title>
+  <meta name="description" content="داشبورد فارسی قیمت لحظه‌ای طلا، ارز، سکه، بورس و رمزارز">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="site-header">
+    <div class="top-strip">
+      <div class="container top-strip-inner">
+        <div class="market-status">
+          <span class="pulse"></span>
+          بازار داخلی باز است
+          <span class="muted">آخرین بروزرسانی: <span id="updateTime">۱۴:۳۵:۲۱</span></span>
+        </div>
+        <div class="top-links">
+          <button class="plain-button" id="themeToggle" aria-label="تغییر پوسته">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            پوسته
+          </button>
+          <a href="#tools">ابزارها</a>
+          <a href="news.html">اخبار بازار</a>
+          <a href="#about">درباره ما</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container nav-wrap">
+      <a class="brand" href="#" aria-label="نبض بازار">
+        <span class="brand-mark">
+          <svg viewBox="0 0 44 44" aria-hidden="true">
+            <path d="M7 29.5 15.5 21l6 5.5L36.5 11" />
+            <path d="M29 11h7.5v7.5" />
+          </svg>
+        </span>
+        <span>
+          <strong>نبض بازار</strong>
+          <small>مرجع هوشمند بازارهای مالی</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <a class="active" href="index.html">خانه</a>
+        <a href="gold.html">طلا و سکه</a>
+        <a href="currency.html">ارز</a>
+        <a href="crypto.html">رمزارز</a>
+        <a href="stocks.html">بورس</a>
+        <a href="global.html">بازار جهانی</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button search-toggle" aria-label="جستجو">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </button>
+        <button class="watchlist-button">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>
+          دیده‌بان من
+        </button>
+        <button class="menu-toggle" aria-label="باز کردن منو">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-panel">
+      <div class="container search-panel-inner">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input type="search" placeholder="جستجوی ارز، طلا، سکه یا نماد بازار..." aria-label="جستجوی بازار">
+        <kbd>ESC</kbd>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="ticker-section" aria-label="قیمت‌های مهم">
+      <div class="container ticker-grid">
+        <article class="ticker-card positive" data-ticker="gold18">
+          <div class="ticker-icon gold">طلا</div>
+          <div>
+            <span>طلای ۱۸ عیار</span>
+            <strong data-live-value="6874200">۶٬۸۷۴٬۲۰۰</strong>
+          </div>
+          <div class="ticker-change"><b>۰٫۸۲٪</b><small>+۵۵۸٬۰۰۰</small></div>
+        </article>
+        <article class="ticker-card positive" data-ticker="usd">
+          <div class="ticker-icon dollar">$</div>
+          <div>
+            <span>دلار آزاد</span>
+            <strong data-live-value="93250">۹۳٬۲۵۰</strong>
+          </div>
+          <div class="ticker-change"><b>۰٫۳۴٪</b><small>+۳٬۲۰۰</small></div>
+        </article>
+        <article class="ticker-card negative" data-ticker="coin">
+          <div class="ticker-icon coin">سکه</div>
+          <div>
+            <span>سکه امامی</span>
+            <strong data-live-value="78240000">۷۸٬۲۴۰٬۰۰۰</strong>
+          </div>
+          <div class="ticker-change"><b>۰٫۱۲٪</b><small>−۹۵۰٬۰۰۰</small></div>
+        </article>
+        <article class="ticker-card positive" data-ticker="bitcoin">
+          <div class="ticker-icon bitcoin">₿</div>
+          <div>
+            <span>بیت‌کوین</span>
+            <strong class="latin" data-live-value="61843">$۶۱٬۸۴۳</strong>
+          </div>
+          <div class="ticker-change"><b>۱٫۶۴٪</b><small>+$۹۹۸</small></div>
+        </article>
+        <article class="ticker-card positive">
+          <div class="ticker-icon bourse">بورس</div>
+          <div>
+            <span>شاخص کل</span>
+            <strong>۲٬۶۸۴٬۹۱۲</strong>
+          </div>
+          <div class="ticker-change"><b>۰٫۵۷٪</b><small>+۱۵٬۲۲۱</small></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="connection-bar">
+      <div class="container connection-inner">
+        <div class="connection-state">
+          <span class="connection-dot" id="connectionDot"></span>
+          <div>
+            <strong id="connectionTitle">داده‌های نمایشی فعال است</strong>
+            <small id="connectionMessage">برای دریافت داده زنده، سرور API را اجرا کنید</small>
+          </div>
+        </div>
+        <div class="data-sources" id="dataSources">
+          <span>Navasan</span><span>CoinGecko</span><span>Frankfurter</span><span>Gold API</span>
+        </div>
+        <button class="refresh-button" id="refreshData">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 1-2.3-5.7L20 8"/><path d="M20 3v5h-5"/></svg>
+          بروزرسانی داده
+        </button>
+      </div>
+    </section>
+
+    <section class="hero container">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span>تصمیم دقیق، با داده‌ی به‌روز</div>
+        <h1>همه‌ی بازارها،<br><em>در یک نگاه.</em></h1>
+        <p>قیمت لحظه‌ای طلا، ارز، سکه، بورس و رمزارز را در یک داشبورد سریع و ساده دنبال کنید.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#markets">
+            مشاهده بازارها
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </a>
+          <button class="secondary-button" id="openCalculator">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 4h2m4 0h2"/></svg>
+            ماشین حساب ارز
+          </button>
+        </div>
+        <div class="hero-trust">
+          <div class="avatars"><span>ن</span><span>م</span><span>ر</span><span>+</span></div>
+          <div><strong>+۱۸۰ هزار</strong><small>کاربر فعال روزانه</small></div>
+          <div class="divider"></div>
+          <div><strong>۲۴/۷</strong><small>پایش بازار</small></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="chart-card">
+          <div class="chart-head">
+            <div>
+              <span class="chart-label"><i class="asset-dot"></i> دلار آمریکا</span>
+              <div class="chart-price">۹۳٬۲۵۰ <small>تومان</small></div>
+            </div>
+            <div class="chart-up">+۰٫۳۴٪
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+            </div>
+          </div>
+          <div class="chart-tabs">
+            <button>۱ س</button><button>۱ ر</button><button class="selected">۱ ه</button><button>۱ م</button><button>۱ س</button>
+          </div>
+          <div class="chart-area">
+            <div class="chart-grid-lines"></div>
+            <svg viewBox="0 0 620 230" preserveAspectRatio="none" aria-label="نمودار تغییرات دلار">
+              <defs>
+                <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#16c784" stop-opacity=".35"/>
+                  <stop offset="100%" stop-color="#16c784" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="area" d="M0,188 C35,178 48,182 78,161 C110,139 125,151 153,137 C191,119 211,150 247,124 C286,96 308,112 343,83 C375,56 396,94 431,68 C471,40 488,61 521,38 C556,13 584,35 620,15 L620,230 L0,230 Z"/>
+              <path class="line" d="M0,188 C35,178 48,182 78,161 C110,139 125,151 153,137 C191,119 211,150 247,124 C286,96 308,112 343,83 C375,56 396,94 431,68 C471,40 488,61 521,38 C556,13 584,35 620,15"/>
+              <circle cx="620" cy="15" r="5"/>
+            </svg>
+            <div class="chart-tooltip"><span>امروز، ۱۴:۳۵</span><strong>۹۳٬۲۵۰ تومان</strong></div>
+          </div>
+          <div class="chart-meta">
+            <div><span>کمترین</span><strong>۹۱٬۸۲۰</strong></div>
+            <div><span>بیشترین</span><strong>۹۳٬۷۰۰</strong></div>
+            <div><span>تغییر هفتگی</span><strong class="green">+۲٫۱۸٪</strong></div>
+          </div>
+        </div>
+        <div class="floating-stat stat-gold">
+          <span class="mini-icon">Au</span>
+          <div><small>انس جهانی طلا</small><strong>$۲٬۴۵۸٫۳</strong></div>
+          <b>+۰٫۴۱٪</b>
+        </div>
+        <div class="floating-stat stat-alert">
+          <span class="bell-icon">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+          </span>
+          <div><small>هشدار قیمت</small><strong>فعال شد</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="overview-section">
+      <div class="container">
+        <div class="section-heading overview-heading">
+          <div>
+            <span class="section-kicker">نمای کلی بازار</span>
+            <h2>امروز در بازار چه خبر است؟</h2>
+          </div>
+          <div class="overview-summary">
+            <span><i class="up-dot"></i> ۳۸ نماد صعودی</span>
+            <span><i class="down-dot"></i> ۱۴ نماد نزولی</span>
+            <span><i class="flat-dot"></i> ۸ نماد بدون تغییر</span>
+          </div>
+        </div>
+
+        <div class="overview-grid">
+          <article class="overview-card overview-card-featured" data-overview="usd">
+            <div class="overview-card-head">
+              <div class="overview-asset">
+                <span class="overview-icon usd-icon">$</span>
+                <div><small>بازار ارز</small><strong>دلار آمریکا</strong></div>
+              </div>
+              <span class="overview-change up">+۰٫۳۴٪</span>
+            </div>
+            <div class="overview-price"><strong data-overview-price>۹۳٬۲۵۰</strong><span>تومان</span></div>
+            <div class="overview-chart large-chart">
+              <svg viewBox="0 0 380 90" preserveAspectRatio="none">
+                <defs><linearGradient id="overviewGreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16c784" stop-opacity=".35"/><stop offset="1" stop-color="#16c784" stop-opacity="0"/></linearGradient></defs>
+                <path class="fill-green" d="M0 72C28 61 45 68 71 53s43 8 67-5 45-19 70-8 45-18 68-12 51-15 104-25v87H0Z"/>
+                <path class="stroke-green" d="M0 72C28 61 45 68 71 53s43 8 67-5 45-19 70-8 45-18 68-12 51-15 104-25"/>
+              </svg>
+            </div>
+            <div class="overview-stats">
+              <div><span>بازگشایی</span><strong>۹۲٬۹۳۰</strong></div>
+              <div><span>سقف روز</span><strong>۹۳٬۷۰۰</strong></div>
+              <div><span>حجم معاملات</span><strong>۱٫۸ همت</strong></div>
+            </div>
+          </article>
+
+          <article class="overview-card" data-overview="gold18">
+            <div class="overview-card-head">
+              <div class="overview-asset"><span class="overview-icon gold-icon">Au</span><div><small>بازار طلا</small><strong>طلای ۱۸ عیار</strong></div></div>
+              <span class="overview-change up">+۰٫۸۲٪</span>
+            </div>
+            <div class="overview-price"><strong data-overview-price>۶٬۸۷۴٬۲۰۰</strong><span>تومان</span></div>
+            <div class="overview-chart"><svg viewBox="0 0 180 50" preserveAspectRatio="none"><path class="stroke-gold" d="M0 43 22 38 43 40 65 27 87 32 109 18 132 22 154 8 180 12"/></svg></div>
+            <div class="overview-footer"><span>هفته اخیر</span><strong class="up-text">+۲٫۷۳٪</strong></div>
+          </article>
+
+          <article class="overview-card" data-overview="coin">
+            <div class="overview-card-head">
+              <div class="overview-asset"><span class="overview-icon coin-icon">●</span><div><small>بازار سکه</small><strong>سکه امامی</strong></div></div>
+              <span class="overview-change down">−۰٫۱۲٪</span>
+            </div>
+            <div class="overview-price"><strong data-overview-price>۷۸٬۲۴۰٬۰۰۰</strong><span>تومان</span></div>
+            <div class="overview-chart"><svg viewBox="0 0 180 50" preserveAspectRatio="none"><path class="stroke-red" d="M0 8 22 13 43 11 65 19 87 17 109 29 132 24 154 38 180 35"/></svg></div>
+            <div class="overview-footer"><span>حباب سکه</span><strong>۱۲٫۴٪</strong></div>
+          </article>
+
+          <article class="overview-card" data-overview="bitcoin">
+            <div class="overview-card-head">
+              <div class="overview-asset"><span class="overview-icon btc-icon">₿</span><div><small>رمزارز</small><strong>بیت‌کوین</strong></div></div>
+              <span class="overview-change up">+۱٫۶۴٪</span>
+            </div>
+            <div class="overview-price"><strong class="latin" data-overview-price>$۶۱٬۸۴۳</strong><span>دلار</span></div>
+            <div class="overview-chart"><svg viewBox="0 0 180 50" preserveAspectRatio="none"><path class="stroke-green" d="M0 41 22 35 43 39 65 24 87 29 109 14 132 19 154 5 180 9"/></svg></div>
+            <div class="overview-footer"><span>ارزش بازار</span><strong>$۱٫۲۲T</strong></div>
+          </article>
+
+          <article class="overview-card">
+            <div class="overview-card-head">
+              <div class="overview-asset"><span class="overview-icon index-icon">شا</span><div><small>بازار سرمایه</small><strong>شاخص کل بورس</strong></div></div>
+              <span class="overview-change up">+۰٫۵۷٪</span>
+            </div>
+            <div class="overview-price"><strong>۲٬۶۸۴٬۹۱۲</strong><span>واحد</span></div>
+            <div class="overview-chart"><svg viewBox="0 0 180 50" preserveAspectRatio="none"><path class="stroke-blue" d="M0 38 22 41 43 30 65 34 87 20 109 25 132 15 154 18 180 5"/></svg></div>
+            <div class="overview-footer"><span>ارزش معاملات</span><strong>۹٫۴ همت</strong></div>
+          </article>
+
+          <article class="overview-card" data-overview="goldOunce">
+            <div class="overview-card-head">
+              <div class="overview-asset"><span class="overview-icon global-icon">🌐</span><div><small>بازار جهانی</small><strong>انس جهانی طلا</strong></div></div>
+              <span class="overview-change up">+۰٫۴۱٪</span>
+            </div>
+            <div class="overview-price"><strong class="latin" data-overview-price>$۲٬۴۵۸</strong><span>دلار</span></div>
+            <div class="overview-chart"><svg viewBox="0 0 180 50" preserveAspectRatio="none"><path class="stroke-purple" d="M0 37 22 29 43 33 65 20 87 25 109 12 132 16 154 7 180 10"/></svg></div>
+            <div class="overview-footer"><span>تغییر ماهانه</span><strong class="up-text">+۳٫۱۲٪</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="market-section container" id="markets">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">تابلوی بازار</span>
+          <h2>نبض لحظه‌ای بازارها</h2>
+        </div>
+        <div class="market-tabs" role="tablist">
+          <button class="active" data-filter="all">همه</button>
+          <button data-filter="currency">ارز</button>
+          <button data-filter="gold">طلا و سکه</button>
+          <button data-filter="crypto">رمزارز</button>
+          <button data-filter="global">جهانی</button>
+        </div>
+      </div>
+
+      <div class="market-layout">
+        <div class="market-table-card">
+          <div class="table-toolbar">
+            <div>
+              <strong>منتخب بازار</strong>
+              <span>۱۲ دارایی پربازدید</span>
+            </div>
+            <button class="more-button">مشاهده همه
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="market-table-scroll">
+            <table class="market-table">
+              <thead><tr><th>عنوان</th><th>قیمت</th><th>تغییر</th><th>کمترین</th><th>بیشترین</th><th>نمودار</th></tr></thead>
+              <tbody id="marketRows">
+                <tr data-category="currency" data-asset="usd">
+                  <td><div class="asset-name"><span class="flag">🇺🇸</span><div><strong>دلار آمریکا</strong><small>USD / تومان</small></div></div></td>
+                  <td><strong data-field="price">۹۳٬۲۵۰</strong></td><td><span class="change up" data-field="change">۰٫۳۴٪ ↑</span></td><td data-field="low">۹۲٬۸۰۰</td><td data-field="high">۹۳٬۷۰۰</td>
+                  <td><svg class="spark up-spark" viewBox="0 0 110 34"><path d="M2 29 16 23 29 25 43 14 57 19 72 10 87 13 108 4"/></svg></td>
+                </tr>
+                <tr data-category="currency" data-asset="eur">
+                  <td><div class="asset-name"><span class="flag">🇪🇺</span><div><strong>یورو</strong><small>EUR / تومان</small></div></div></td>
+                  <td><strong data-field="price">۱۰۲٬۴۸۰</strong></td><td><span class="change down" data-field="change">۰٫۱۸٪ ↓</span></td><td data-field="low">۱۰۱٬۹۰۰</td><td data-field="high">۱۰۳٬۱۰۰</td>
+                  <td><svg class="spark down-spark" viewBox="0 0 110 34"><path d="M2 7 17 10 31 8 44 17 59 14 73 24 89 21 108 30"/></svg></td>
+                </tr>
+                <tr data-category="gold" data-asset="gold18">
+                  <td><div class="asset-name"><span class="asset-symbol gold-bg">۱۸</span><div><strong>طلای ۱۸ عیار</strong><small>گرم / ریال</small></div></div></td>
+                  <td><strong data-field="price">۶٬۸۷۴٬۲۰۰</strong></td><td><span class="change up" data-field="change">۰٫۸۲٪ ↑</span></td><td data-field="low">۶٬۸۱۱٬۰۰۰</td><td data-field="high">۶٬۸۹۰٬۰۰۰</td>
+                  <td><svg class="spark up-spark" viewBox="0 0 110 34"><path d="M2 28 17 25 30 27 45 19 58 20 73 10 88 14 108 5"/></svg></td>
+                </tr>
+                <tr data-category="gold" data-asset="coin">
+                  <td><div class="asset-name"><span class="asset-symbol coin-bg">●</span><div><strong>سکه امامی</strong><small>تک‌فروشی / ریال</small></div></div></td>
+                  <td><strong data-field="price">۷۸٬۲۴۰٬۰۰۰</strong></td><td><span class="change down" data-field="change">۰٫۱۲٪ ↓</span></td><td data-field="low">۷۷٬۹۰۰٬۰۰۰</td><td data-field="high">۷۸٬۵۰۰٬۰۰۰</td>
+                  <td><svg class="spark down-spark" viewBox="0 0 110 34"><path d="M2 9 17 13 31 10 45 17 60 14 74 23 89 21 108 28"/></svg></td>
+                </tr>
+                <tr data-category="crypto" data-asset="bitcoin">
+                  <td><div class="asset-name"><span class="asset-symbol btc-bg">₿</span><div><strong>بیت‌کوین</strong><small>BTC / USD</small></div></div></td>
+                  <td><strong class="latin" data-field="price">$۶۱٬۸۴۳</strong></td><td><span class="change up" data-field="change">۱٫۶۴٪ ↑</span></td><td data-field="low">$۶۰٬۹۰۸</td><td data-field="high">$۶۲٬۱۲۰</td>
+                  <td><svg class="spark up-spark" viewBox="0 0 110 34"><path d="M2 26 17 28 32 19 45 22 60 13 74 16 89 7 108 3"/></svg></td>
+                </tr>
+                <tr data-category="crypto" data-asset="ethereum">
+                  <td><div class="asset-name"><span class="asset-symbol eth-bg">Ξ</span><div><strong>اتریوم</strong><small>ETH / USD</small></div></div></td>
+                  <td><strong class="latin" data-field="price">$۲٬۶۴۸</strong></td><td><span class="change up" data-field="change">۰٫۹۸٪ ↑</span></td><td data-field="low">$۲٬۵۹۹</td><td data-field="high">$۲٬۶۹۰</td>
+                  <td><svg class="spark up-spark" viewBox="0 0 110 34"><path d="M2 26 18 20 31 24 45 15 60 18 74 9 89 12 108 5"/></svg></td>
+                </tr>
+                <tr data-category="currency" data-asset="aed">
+                  <td><div class="asset-name"><span class="flag">🇦🇪</span><div><strong>درهم امارات</strong><small>AED / تومان</small></div></div></td>
+                  <td><strong data-field="price">۲۵٬۳۹۵</strong></td><td><span class="change up" data-field="change">۰٫۲۶٪ ↑</span></td><td data-field="low">۲۵٬۲۱۰</td><td data-field="high">۲۵٬۴۸۰</td>
+                  <td><svg class="spark up-spark" viewBox="0 0 110 34"><path d="M2 27 17 23 31 25 44 19 59 21 73 12 89 14 108 7"/></svg></td>
+                </tr>
+                <tr data-category="global" data-asset="goldOunce">
+                  <td><div class="asset-name"><span class="asset-symbol gold-bg">Au</span><div><strong>انس جهانی طلا</strong><small>XAU / USD</small></div></div></td>
+                  <td><strong class="latin" data-field="price">$۲٬۴۵۸</strong></td><td><span class="change up" data-field="change">۰٫۴۱٪ ↑</span></td><td data-field="low">$۲٬۴۳۸</td><td data-field="high">$۲٬۴۶۷</td>
+                  <td><svg class="spark up-spark" viewBox="0 0 110 34"><path d="M2 25 17 22 31 24 46 17 60 19 74 10 89 13 108 6"/></svg></td>
+                </tr>
+                <tr data-category="global">
+                  <td><div class="asset-name"><span class="asset-symbol oil-bg">O</span><div><strong>نفت برنت</strong><small>BRENT / USD</small></div></div></td>
+                  <td><strong class="latin">$۸۱٫۳۲</strong></td><td><span class="change up">۰٫۲۷٪ ↑</span></td><td>$۸۰٫۷۴</td><td>$۸۲٫۰۱</td>
+                  <td><svg class="spark up-spark" viewBox="0 0 110 34"><path d="M2 29 17 21 31 23 46 19 60 12 74 16 89 11 108 6"/></svg></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="market-sidebar">
+          <div class="sentiment-card">
+            <div class="card-title"><div><strong>حال بازار</strong><span>برآیند تغییرات امروز</span></div><span class="live-badge">زنده</span></div>
+            <div class="gauge">
+              <div class="gauge-arc"></div>
+              <div class="gauge-value"><strong>۷۲</strong><span>صعودی</span></div>
+            </div>
+            <div class="gauge-labels"><span>نزولی</span><span>خنثی</span><span>صعودی</span></div>
+            <div class="sentiment-bars">
+              <div><span>ارز</span><i><b style="width:68%"></b></i><strong>۶۸٪</strong></div>
+              <div><span>طلا</span><i><b style="width:82%"></b></i><strong>۸۲٪</strong></div>
+              <div><span>رمزارز</span><i><b style="width:61%"></b></i><strong>۶۱٪</strong></div>
+            </div>
+          </div>
+          <div class="alert-card">
+            <div class="alert-illustration">
+              <svg viewBox="0 0 110 80" aria-hidden="true"><path d="M18 63c14-33 31-12 43-36 7-14 19-15 33-6"/><circle cx="94" cy="21" r="5"/><path d="M14 67h85"/></svg>
+            </div>
+            <span>فرصت‌ها را از دست ندهید</span>
+            <h3>هشدار قیمت بسازید</h3>
+            <p>به محض رسیدن دارایی به قیمت دلخواه، باخبر شوید.</p>
+            <button id="quickAlert">ساخت هشدار رایگان</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="analytics-section">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="section-kicker">مرکز تحلیل بازار</span><h2>تصویر عمیق‌تر از جریان نقدینگی</h2></div>
+          <div class="analytics-tabs">
+            <button class="active">امروز</button><button>هفته</button><button>ماه</button>
+          </div>
+        </div>
+
+        <div class="analytics-grid">
+          <article class="heatmap-panel">
+            <div class="panel-heading">
+              <div><strong>نقشه حرارتی بازار</strong><span>اندازه هر بلوک بر اساس ارزش بازار</span></div>
+              <button>نمایش جزئیات</button>
+            </div>
+            <div class="heatmap">
+              <button class="heat btc-heat"><strong>BTC</strong><span>+۱٫۶۴٪</span><small>$61,843</small></button>
+              <button class="heat usd-heat"><strong>USD</strong><span>+۰٫۳۴٪</span><small>93,250</small></button>
+              <button class="heat gold-heat"><strong>GOLD</strong><span>+۰٫۸۲٪</span><small>6.87M</small></button>
+              <button class="heat eth-heat"><strong>ETH</strong><span>+۰٫۹۸٪</span></button>
+              <button class="heat coin-heat negative-heat"><strong>COIN</strong><span>−۰٫۱۲٪</span></button>
+              <button class="heat eur-heat negative-heat"><strong>EUR</strong><span>−۰٫۱۸٪</span></button>
+              <button class="heat bourse-heat"><strong>بورس</strong><span>+۰٫۵۷٪</span></button>
+              <button class="heat oil-heat"><strong>OIL</strong><span>+۰٫۲۷٪</span></button>
+            </div>
+            <div class="heatmap-scale"><span>−۳٪</span><i></i><span>خنثی</span><b></b><span>+۳٪</span></div>
+          </article>
+
+          <article class="movers-panel">
+            <div class="panel-heading">
+              <div><strong>بیشترین تغییر</strong><span>برترین‌های ۲۴ ساعت اخیر</span></div>
+              <span class="live-badge">زنده</span>
+            </div>
+            <div class="mover-list">
+              <div class="mover-item">
+                <span class="mover-rank">۱</span><span class="asset-symbol sol-bg">S</span>
+                <div><strong>سولانا</strong><small>SOL</small></div><span class="mover-price">$۱۴۲٫۸</span><b>+۵٫۸۲٪</b>
+              </div>
+              <div class="mover-item">
+                <span class="mover-rank">۲</span><span class="asset-symbol gold-bg">۱۸</span>
+                <div><strong>طلای ۱۸ عیار</strong><small>GOLD</small></div><span class="mover-price">۶٫۸۷M</span><b>+۰٫۸۲٪</b>
+              </div>
+              <div class="mover-item">
+                <span class="mover-rank">۳</span><span class="asset-symbol btc-bg">₿</span>
+                <div><strong>بیت‌کوین</strong><small>BTC</small></div><span class="mover-price">$۶۱٫۸K</span><b>+۱٫۶۴٪</b>
+              </div>
+              <div class="mover-item down-mover">
+                <span class="mover-rank">۴</span><span class="asset-symbol coin-bg">●</span>
+                <div><strong>سکه امامی</strong><small>COIN</small></div><span class="mover-price">۷۸٫۲M</span><b>−۰٫۱۲٪</b>
+              </div>
+            </div>
+          </article>
+
+          <article class="calendar-panel">
+            <div class="panel-heading">
+              <div><strong>تقویم اقتصادی</strong><span>رویدادهای مهم پیش‌رو</span></div>
+              <a href="#">تقویم کامل ←</a>
+            </div>
+            <div class="calendar-list">
+              <div class="calendar-event">
+                <div class="event-time"><strong>۱۶:۰۰</strong><span>امروز</span></div>
+                <div class="event-line"><i></i></div>
+                <div class="event-content"><span><b class="impact high-impact"></b> اهمیت بالا</span><strong>شاخص قیمت مصرف‌کننده آمریکا</strong><small>USD · نرخ تورم سالانه</small></div>
+                <div class="event-values"><span>قبلی <b>۳٫۲٪</b></span><span>پیش‌بینی <b>۳٫۱٪</b></span></div>
+              </div>
+              <div class="calendar-event">
+                <div class="event-time"><strong>۱۸:۳۰</strong><span>امروز</span></div>
+                <div class="event-line"><i></i></div>
+                <div class="event-content"><span><b class="impact medium-impact"></b> اهمیت متوسط</span><strong>ذخایر نفت خام آمریکا</strong><small>OIL · گزارش هفتگی EIA</small></div>
+                <div class="event-values"><span>قبلی <b>−۲٫۴M</b></span><span>پیش‌بینی <b>−۱٫۸M</b></span></div>
+              </div>
+              <div class="calendar-event">
+                <div class="event-time"><strong>۱۰:۳۰</strong><span>فردا</span></div>
+                <div class="event-line"><i></i></div>
+                <div class="event-content"><span><b class="impact low-impact"></b> اهمیت کم</span><strong>تولید صنعتی منطقه یورو</strong><small>EUR · تغییر ماهانه</small></div>
+                <div class="event-values"><span>قبلی <b>۰٫۵٪</b></span><span>پیش‌بینی <b>۰٫۳٪</b></span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-section">
+      <div class="container portfolio-grid">
+        <div class="portfolio-copy">
+          <span class="section-kicker">شبیه‌ساز سرمایه‌گذاری</span>
+          <h2>اگر یک سال پیش سرمایه‌گذاری می‌کردید...</h2>
+          <p>مبلغ و بازار را انتخاب کنید تا ارزش تقریبی امروز و بازده سرمایه‌گذاری را ببینید.</p>
+          <div class="simulator-controls">
+            <label>سرمایه اولیه
+              <div class="simulator-input"><input id="investmentAmount" type="number" value="100000000" min="0"><span>تومان</span></div>
+            </label>
+            <label>بازار
+              <select id="investmentMarket">
+                <option value="1.42">طلا</option>
+                <option value="1.28">دلار</option>
+                <option value="1.64">بیت‌کوین</option>
+                <option value="1.19">بورس</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="portfolio-result">
+          <div class="portfolio-result-head"><span>ارزش امروز سرمایه شما</span><b>بازده تخمینی</b></div>
+          <strong id="investmentResult">۱۴۲٬۰۰۰٬۰۰۰ <small>تومان</small></strong>
+          <div class="return-row"><span id="returnAmount">+۴۲٬۰۰۰٬۰۰۰ تومان</span><b id="returnPercent">+۴۲٪</b></div>
+          <div class="growth-bars">
+            <div><span style="height:45%"></span><small>شروع</small></div>
+            <div><span style="height:52%"></span><small>پاییز</small></div>
+            <div><span style="height:64%"></span><small>زمستان</small></div>
+            <div><span style="height:77%"></span><small>بهار</small></div>
+            <div><span style="height:94%"></span><small>امروز</small></div>
+          </div>
+          <p>این محاسبه صرفاً نمایشی است و هزینه‌های معامله را در نظر نمی‌گیرد.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="insight-section" id="news">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="section-kicker">رصد هوشمند</span><h2>آخرین اخبار و تحلیل‌ها</h2></div>
+          <a class="more-link" href="#">مشاهده همه مطالب
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </a>
+        </div>
+        <div class="news-grid">
+          <article class="featured-news">
+            <div class="featured-visual">
+              <div class="news-orbit orbit-one"></div><div class="news-orbit orbit-two"></div>
+              <span class="coin-visual">₿</span>
+              <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="news-content">
+              <div class="news-meta"><span>رمزارز</span><time>۱۲ دقیقه پیش</time></div>
+              <h3>بازار رمزارز در آستانه یک حرکت تازه؛ معامله‌گران منتظر چه هستند؟</h3>
+              <p>مرور مهم‌ترین داده‌های آن‌چین و رفتار سرمایه‌گذاران در بازار امروز.</p>
+              <a href="#">ادامه مطلب <span>←</span></a>
+            </div>
+          </article>
+          <div class="news-list">
+            <article>
+              <div class="news-number">۰۱</div>
+              <div><div class="news-meta"><span>طلا و سکه</span><time>۳۵ دقیقه پیش</time></div><h3>چرا قیمت طلا امروز صعودی شد؟ سه عامل کلیدی بازار</h3></div>
+            </article>
+            <article>
+              <div class="news-number">۰۲</div>
+              <div><div class="news-meta"><span>ارز</span><time>۱ ساعت پیش</time></div><h3>دلار در محدوده حساس؛ نقشه جدید عرضه و تقاضا</h3></div>
+            </article>
+            <article>
+              <div class="news-number">۰۳</div>
+              <div><div class="news-meta"><span>بورس</span><time>۲ ساعت پیش</time></div><h3>گزارش پایان بازار؛ بازگشت تقاضا به نمادهای بزرگ</h3></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools-section container" id="tools">
+      <div class="tools-copy">
+        <span class="section-kicker">جعبه ابزار</span>
+        <h2>ابزارهای کوچک،<br>تصمیم‌های بزرگ</h2>
+        <p>محاسبه، مقایسه و رصد بازار با ابزارهای کاربردی و سریع.</p>
+        <a href="#">مشاهده همه ابزارها <span>←</span></a>
+      </div>
+      <div class="tool-cards">
+        <button class="tool-card" data-tool="converter">
+          <span class="tool-icon green-tool"><svg viewBox="0 0 24 24"><path d="M7 7h11l-3-3m2 13H6l3 3"/></svg></span>
+          <strong>مبدل ارز</strong><small>تبدیل نرخ ۱۷۰ ارز</small><b>←</b>
+        </button>
+        <button class="tool-card" data-tool="gold">
+          <span class="tool-icon yellow-tool"><svg viewBox="0 0 24 24"><path d="m7 18-3-3 6-10h4l6 10-3 3Z"/><path d="M4 15h16"/></svg></span>
+          <strong>محاسبه‌گر طلا</strong><small>اجرت، سود و مالیات</small><b>←</b>
+        </button>
+        <button class="tool-card" data-tool="profit">
+          <span class="tool-icon purple-tool"><svg viewBox="0 0 24 24"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg></span>
+          <strong>محاسبه سود</strong><small>بازده سرمایه‌گذاری</small><b>←</b>
+        </button>
+        <button class="tool-card" data-tool="compare">
+          <span class="tool-icon blue-tool"><svg viewBox="0 0 24 24"><path d="M8 5H3v5m13 9h5v-5M3 10l5-5m13 9-5 5"/></svg></span>
+          <strong>مقایسه بازارها</strong><small>بازده در بازه دلخواه</small><b>←</b>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer id="about">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#">
+          <span class="brand-mark"><svg viewBox="0 0 44 44"><path d="M7 29.5 15.5 21l6 5.5L36.5 11"/><path d="M29 11h7.5v7.5"/></svg></span>
+          <span><strong>نبض بازار</strong><small>مرجع هوشمند بازارهای مالی</small></span>
+        </a>
+        <p>اطلاعات بازار برای آگاهی شماست و پیشنهاد خرید یا فروش محسوب نمی‌شود.</p>
+      </div>
+      <div><strong>بازارها</strong><a href="gold.html">طلا و سکه</a><a href="currency.html">ارز</a><a href="crypto.html">رمزارز</a><a href="stocks.html">بورس</a></div>
+      <div><strong>دسترسی سریع</strong><a href="news.html">اخبار</a><a href="global.html">بازار جهانی</a><a href="#tools">ابزارها</a><a href="#">سؤالات متداول</a></div>
+      <div class="newsletter"><strong>خبرنامه روزانه بازار</strong><p>مهم‌ترین تغییرات را هر صبح دریافت کنید.</p><form><input type="email" placeholder="ایمیل شما"><button type="submit">عضویت</button></form></div>
+    </div>
+    <div class="container footer-bottom"><span>© ۱۴۰۵ نبض بازار — تمامی حقوق محفوظ است.</span><span>داده‌ها با تأخیر احتمالی نمایش داده می‌شوند.</span></div>
+  </footer>
+
+  <div class="modal" id="calculatorModal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="بستن">×</button>
+      <span class="modal-icon">⇄</span>
+      <h2 id="modalTitle">مبدل سریع ارز</h2>
+      <p>مقدار دلار را وارد کنید تا معادل تقریبی آن به تومان محاسبه شود.</p>
+      <label>مبلغ به دلار</label>
+      <div class="input-wrap"><input id="dollarAmount" type="number" value="100" min="0"><span>USD</span></div>
+      <div class="conversion-arrow">↓</div>
+      <label>معادل به تومان</label>
+      <div class="result-box"><strong id="conversionResult">۹٬۳۲۵٬۰۰۰</strong><span>تومان</span></div>
+      <small>بر اساس نرخ نمونه ۹۳٬۲۵۰ تومان</small>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <span>✓</span><div><strong>انجام شد</strong><small>درخواست شما با موفقیت ثبت شد.</small></div>
+  </div>
+
+  <script src="app.js?v=3"></script>
+</body>
+</html>
